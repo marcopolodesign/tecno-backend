@@ -1,0 +1,70 @@
+{
+  "kind": "collectionType",
+  "collectionName": "prospects",
+  "info": {
+    "singularName": "prospect",
+    "pluralName": "prospects",
+    "displayName": "Prospect",
+    "description": "Potential customers who showed interest but haven't submitted the form yet"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "email": {
+      "type": "email",
+      "required": true,
+      "unique": true
+    },
+    "firstName": {
+      "type": "string",
+      "maxLength": 50
+    },
+    "lastName": {
+      "type": "string",
+      "maxLength": 50
+    },
+    "phone": {
+      "type": "string",
+      "maxLength": 20
+    },
+    "trainingGoal": {
+      "type": "enumeration",
+      "enum": [
+        "perdida-peso",
+        "aumento-masa-muscular",
+        "mejora-resistencia",
+        "tonificacion",
+        "entrenamiento-funcional",
+        "preparacion-competencias",
+        "rehabilitacion-fisica",
+        "reduccion-estres"
+      ]
+    },
+    "source": {
+      "type": "string",
+      "default": "website"
+    },
+    "capturedAt": {
+      "type": "datetime",
+      "required": true
+    },
+    "lastInteraction": {
+      "type": "datetime"
+    },
+    "convertedToLead": {
+      "type": "boolean",
+      "default": false
+    },
+    "notes": {
+      "type": "text"
+    },
+    "lead": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::lead.lead",
+      "mappedBy": "prospect"
+    }
+  }
+}

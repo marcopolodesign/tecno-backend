@@ -1,0 +1,133 @@
+{
+  "prospects": [
+    {
+      "email": "pedro.santos@gmail.com",
+      "firstName": "Pedro",
+      "capturedAt": "2025-10-21T09:30:00.000Z",
+      "lastInteraction": "2025-10-21T09:35:00.000Z",
+      "convertedToLead": false,
+      "source": "website",
+      "notes": "Abandoned form at training goal selection"
+    },
+    {
+      "email": "laura.diaz@hotmail.com",
+      "firstName": "Laura",
+      "trainingGoal": "tonificacion",
+      "capturedAt": "2025-10-20T16:20:00.000Z",
+      "lastInteraction": "2025-10-20T16:22:00.000Z",
+      "convertedToLead": false,
+      "source": "website",
+      "notes": "Started form, didn't complete phone number"
+    }
+  ],
+  "leads": [
+    {
+      "firstName": "María",
+      "lastName": "González",
+      "email": "maria.gonzalez@gmail.com",
+      "phone": "+54 11 4567-8901",
+      "trainingGoal": "perdida-peso",
+      "status": "contactado",
+      "submittedAt": "2025-10-21T17:30:00.000Z",
+      "lastContactedAt": "2025-10-21T18:00:00.000Z",
+      "convertedToUser": false,
+      "notes": "Interested in monthly membership, scheduled visit for Friday"
+    },
+    {
+      "firstName": "Carlos",
+      "lastName": "Rodríguez",
+      "email": "carlos.rodriguez@hotmail.com",
+      "phone": "+54 11 5678-9012",
+      "trainingGoal": "aumento-masa-muscular",
+      "status": "nuevo",
+      "submittedAt": "2025-10-21T16:45:00.000Z",
+      "convertedToUser": false,
+      "notes": "New lead, needs to be contacted"
+    },
+    {
+      "firstName": "Ana",
+      "lastName": "Martínez",
+      "email": "ana.martinez@outlook.com",
+      "phone": "+54 11 6789-0123",
+      "trainingGoal": "tonificacion",
+      "status": "en-negociacion",
+      "submittedAt": "2025-10-20T14:20:00.000Z",
+      "lastContactedAt": "2025-10-21T10:00:00.000Z",
+      "convertedToUser": false,
+      "notes": "Comparing quarterly vs annual plans. Follow up Wednesday"
+    },
+    {
+      "firstName": "Lucas",
+      "lastName": "Fernández",
+      "email": "lucas.fernandez@yahoo.com",
+      "phone": "+54 11 7890-1234",
+      "trainingGoal": "entrenamiento-funcional",
+      "status": "convertido",
+      "submittedAt": "2025-10-19T10:15:00.000Z",
+      "lastContactedAt": "2025-10-19T15:30:00.000Z",
+      "convertedToUser": true,
+      "notes": "Signed up for quarterly membership. Starts training Monday"
+    },
+    {
+      "firstName": "Gabriela",
+      "lastName": "Torres",
+      "email": "gabriela.torres@gmail.com",
+      "phone": "+54 11 3456-7890",
+      "trainingGoal": "mejora-resistencia",
+      "status": "perdido",
+      "submittedAt": "2025-10-18T11:00:00.000Z",
+      "lastContactedAt": "2025-10-18T14:00:00.000Z",
+      "convertedToUser": false,
+      "notes": "Chose competitor gym closer to home"
+    }
+  ],
+  "users": [
+    {
+      "firstName": "Sofia",
+      "lastName": "López",
+      "email": "sofia.lopez@gmail.com",
+      "phone": "+54 11 8901-2345",
+      "trainingGoal": "reduccion-estres",
+      "membershipType": "mensual",
+      "membershipStatus": "activo",
+      "startDate": "2025-10-01",
+      "endDate": "2025-11-01",
+      "emergencyContact": "Roberto López",
+      "emergencyPhone": "+54 11 8901-2346",
+      "convertedAt": "2025-09-28T18:00:00.000Z",
+      "notes": "Active member. Attends morning classes 3x/week"
+    },
+    {
+      "firstName": "Lucas",
+      "lastName": "Fernández",
+      "email": "lucas.fernandez@yahoo.com",
+      "phone": "+54 11 7890-1234",
+      "trainingGoal": "entrenamiento-funcional",
+      "membershipType": "trimestral",
+      "membershipStatus": "activo",
+      "startDate": "2025-10-22",
+      "endDate": "2026-01-22",
+      "emergencyContact": "María Fernández",
+      "emergencyPhone": "+54 11 7890-1235",
+      "convertedAt": "2025-10-19T15:30:00.000Z",
+      "notes": "New member. Previous experience with functional training"
+    },
+    {
+      "firstName": "Diego",
+      "lastName": "Ramírez",
+      "email": "diego.ramirez@gmail.com",
+      "phone": "+54 11 2345-6789",
+      "trainingGoal": "aumento-masa-muscular",
+      "membershipType": "anual",
+      "membershipStatus": "activo",
+      "startDate": "2025-01-15",
+      "endDate": "2026-01-15",
+      "emergencyContact": "Carolina Ramírez",
+      "emergencyPhone": "+54 11 2345-6790",
+      "medicalNotes": "Previous shoulder injury - avoid overhead press",
+      "convertedAt": "2025-01-12T16:00:00.000Z",
+      "notes": "Loyal member. Trains 5x/week. Excellent progress"
+    }
+  ]
+}
+

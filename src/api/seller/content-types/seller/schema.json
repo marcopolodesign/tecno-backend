@@ -1,0 +1,39 @@
+{
+  "kind": "collectionType",
+  "collectionName": "sellers",
+  "info": {
+    "singularName": "seller",
+    "pluralName": "sellers",
+    "displayName": "Seller",
+    "description": "Sales representatives who manage leads and customers"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "firstName": {
+      "type": "string",
+      "maxLength": 50,
+      "required": true
+    },
+    "lastName": {
+      "type": "string",
+      "maxLength": 50,
+      "required": true
+    },
+    "email": {
+      "type": "email",
+      "required": true,
+      "unique": true
+    },
+    "phone": {
+      "type": "string",
+      "maxLength": 20
+    },
+    "active": {
+      "type": "boolean",
+      "default": true
+    }
+  }
+}

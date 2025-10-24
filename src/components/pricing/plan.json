@@ -1,0 +1,38 @@
+{
+  "collectionName": "components_pricing_plans",
+  "info": {
+    "displayName": "Plan",
+    "description": "Pricing plan component"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "price": {
+      "type": "decimal",
+      "required": true
+    },
+    "currency": {
+      "type": "string",
+      "default": "ARS"
+    },
+    "period": {
+      "type": "string",
+      "default": "mes"
+    },
+    "description": {
+      "type": "text"
+    },
+    "features": {
+      "type": "component",
+      "repeatable": true,
+      "component": "pricing.feature"
+    },
+    "isPopular": {
+      "type": "boolean",
+      "default": false
+    }
+  }
+}

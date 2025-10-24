@@ -1,0 +1,87 @@
+{
+  "kind": "collectionType",
+  "collectionName": "leads",
+  "info": {
+    "singularName": "lead",
+    "pluralName": "leads",
+    "displayName": "Lead",
+    "description": "Prospects who completed and submitted the contact form"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "firstName": {
+      "type": "string",
+      "maxLength": 50,
+      "required": true
+    },
+    "lastName": {
+      "type": "string",
+      "maxLength": 50,
+      "required": true
+    },
+    "phone": {
+      "type": "string",
+      "maxLength": 20,
+      "required": true
+    },
+    "email": {
+      "type": "email",
+      "required": true,
+      "unique": true
+    },
+    "trainingGoal": {
+      "type": "enumeration",
+      "required": true,
+      "enum": [
+        "perdida-peso",
+        "aumento-masa-muscular",
+        "mejora-resistencia",
+        "tonificacion",
+        "entrenamiento-funcional",
+        "preparacion-competencias",
+        "rehabilitacion-fisica",
+        "reduccion-estres"
+      ]
+    },
+    "status": {
+      "type": "enumeration",
+      "default": "nuevo",
+      "enum": [
+        "nuevo",
+        "contactado",
+        "en-negociacion",
+        "convertido",
+        "perdido"
+      ]
+    },
+    "notes": {
+      "type": "text"
+    },
+    "submittedAt": {
+      "type": "datetime",
+      "required": true
+    },
+    "lastContactedAt": {
+      "type": "datetime"
+    },
+    "convertedToUser": {
+      "type": "boolean",
+      "default": false
+    },
+    "prospect": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::prospect.prospect",
+      "inversedBy": "lead"
+    },
+    "user": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::user.user",
+      "mappedBy": "lead"
+    }
+  }
+}

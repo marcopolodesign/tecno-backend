@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_pricing_features",
+  "info": {
+    "displayName": "Feature",
+    "description": "Pricing feature component"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "included": {
+      "type": "boolean",
+      "default": true
+    }
+  }
+}

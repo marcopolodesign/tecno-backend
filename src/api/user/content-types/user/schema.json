@@ -1,0 +1,99 @@
+{
+  "kind": "collectionType",
+  "collectionName": "users_customers",
+  "info": {
+    "singularName": "user",
+    "pluralName": "users",
+    "displayName": "User (Customer)",
+    "description": "Converted leads who became paying customers"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "firstName": {
+      "type": "string",
+      "maxLength": 50,
+      "required": true
+    },
+    "lastName": {
+      "type": "string",
+      "maxLength": 50,
+      "required": true
+    },
+    "email": {
+      "type": "email",
+      "required": true,
+      "unique": true
+    },
+    "phone": {
+      "type": "string",
+      "maxLength": 20,
+      "required": true
+    },
+    "trainingGoal": {
+      "type": "enumeration",
+      "required": true,
+      "enum": [
+        "perdida-peso",
+        "aumento-masa-muscular",
+        "mejora-resistencia",
+        "tonificacion",
+        "entrenamiento-funcional",
+        "preparacion-competencias",
+        "rehabilitacion-fisica",
+        "reduccion-estres"
+      ]
+    },
+    "membershipType": {
+      "type": "enumeration",
+      "required": true,
+      "enum": [
+        "mensual",
+        "trimestral",
+        "semestral",
+        "anual"
+      ]
+    },
+    "membershipStatus": {
+      "type": "enumeration",
+      "default": "activo",
+      "enum": [
+        "activo",
+        "pausado",
+        "cancelado",
+        "vencido"
+      ]
+    },
+    "startDate": {
+      "type": "date",
+      "required": true
+    },
+    "endDate": {
+      "type": "date"
+    },
+    "emergencyContact": {
+      "type": "string"
+    },
+    "emergencyPhone": {
+      "type": "string"
+    },
+    "medicalNotes": {
+      "type": "text"
+    },
+    "notes": {
+      "type": "text"
+    },
+    "convertedAt": {
+      "type": "datetime",
+      "required": true
+    },
+    "lead": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::lead.lead",
+      "inversedBy": "user"
+    }
+  }
+}
