@@ -49,13 +49,21 @@ module.exports = ({ env }) => {
         database: env('DATABASE_NAME', 'strapi'),
         user: env('DATABASE_USERNAME', 'strapi'),
         password: env('DATABASE_PASSWORD', 'strapi'),
-        ssl: env.bool('DATABASE_SSL', false) 
-          ? {
-              rejectUnauthorized: env.bool(
-                'DATABASE_SSL_REJECT_UNAUTHORIZED',
-                true
-              ),
-            }
+        ssl: env.bool('DATABASE_SSL', false)
+          ? env('DATABASE_CA_CERT')
+            ? {
+                ca: env('DATABASE_CA_CERT'),
+                rejectUnauthorized: env.bool(
+                  'DATABASE_SSL_REJECT_UNAUTHORIZED',
+                  true
+                ),
+              }
+            : {
+                rejectUnauthorized: env.bool(
+                  'DATABASE_SSL_REJECT_UNAUTHORIZED',
+                  true
+                ),
+              }
           : false,
         schema: env('DATABASE_SCHEMA', 'public'),
       },
