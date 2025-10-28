@@ -4,43 +4,43 @@ module.exports = ({ env }) => {
   const client = env('DATABASE_CLIENT', 'sqlite');
 
   const connections = {
-    // mysql: {
-    //   connection: {
-    //     connectionString: env('DATABASE_URL'),
-    //     host: env('DATABASE_HOST', 'localhost'),
-    //     port: env.int('DATABASE_PORT', 3306),
-    //     database: env('DATABASE_NAME', 'strapi'),
-    //     user: env('DATABASE_USERNAME', 'strapi'),
-    //     password: env('DATABASE_PASSWORD', 'strapi'),
-    //     ssl: env.bool('DATABASE_SSL', false) 
-    //       ? {
-    //           rejectUnauthorized: env.bool(
-    //             'DATABASE_SSL_REJECT_UNAUTHORIZED',
-    //             true
-    //           ),
-    //         }
-    //       : false,
-    //   },
-    //   pool: { min: env.int('DATABASE_POOL_MIN', 2), max: env.int('DATABASE_POOL_MAX', 10) },
-    // },
-    // mysql2: {
-    //   connection: {
-    //     host: env('DATABASE_HOST', 'localhost'),
-    //     port: env.int('DATABASE_PORT', 3306),
-    //     database: env('DATABASE_NAME', 'strapi'),
-    //     user: env('DATABASE_USERNAME', 'strapi'),
-    //     password: env('DATABASE_PASSWORD', 'strapi'),
-    //     ssl: env.bool('DATABASE_SSL', false) 
-    //       ? {
-    //           rejectUnauthorized: env.bool(
-    //             'DATABASE_SSL_REJECT_UNAUTHORIZED',
-    //             true
-    //           ),
-    //         }
-    //       : false,
-    //   },
-    //   pool: { min: env.int('DATABASE_POOL_MIN', 2), max: env.int('DATABASE_POOL_MAX', 10) },
-    // },
+    mysql: {
+      connection: {
+        connectionString: env('DATABASE_URL'),
+        host: env('DATABASE_HOST', 'localhost'),
+        port: env.int('DATABASE_PORT', 3306),
+        database: env('DATABASE_NAME', 'strapi'),
+        user: env('DATABASE_USERNAME', 'strapi'),
+        password: env('DATABASE_PASSWORD', 'strapi'),
+        ssl: env.bool('DATABASE_SSL', false) 
+          ? {
+              rejectUnauthorized: env.bool(
+                'DATABASE_SSL_REJECT_UNAUTHORIZED',
+                true
+              ),
+            }
+          : false,
+      },
+      pool: { min: env.int('DATABASE_POOL_MIN', 2), max: env.int('DATABASE_POOL_MAX', 10) },
+    },
+    mysql2: {
+      connection: {
+        host: env('DATABASE_HOST', 'localhost'),
+        port: env.int('DATABASE_PORT', 3306),
+        database: env('DATABASE_NAME', 'strapi'),
+        user: env('DATABASE_USERNAME', 'strapi'),
+        password: env('DATABASE_PASSWORD', 'strapi'),
+        ssl: env.bool('DATABASE_SSL', false) 
+          ? {
+              rejectUnauthorized: env.bool(
+                'DATABASE_SSL_REJECT_UNAUTHORIZED',
+                true
+              ),
+            }
+          : false,
+      },
+      pool: { min: env.int('DATABASE_POOL_MIN', 2), max: env.int('DATABASE_POOL_MAX', 10) },
+    },
     postgres: {
       connection: {
         connectionString: env('DATABASE_URL'),
@@ -50,12 +50,20 @@ module.exports = ({ env }) => {
         user: env('DATABASE_USERNAME', 'strapi'),
         password: env('DATABASE_PASSWORD', 'strapi'),
         ssl: env.bool('DATABASE_SSL', false)
-          ? {
-              rejectUnauthorized: env.bool(
-                'DATABASE_SSL_REJECT_UNAUTHORIZED',
-                true
-              ),
-            }
+          ? env('DATABASE_CA_CERT')
+            ? {
+                ca: env('DATABASE_CA_CERT'),
+                rejectUnauthorized: env.bool(
+                  'DATABASE_SSL_REJECT_UNAUTHORIZED',
+                  true
+                ),
+              }
+            : {
+                rejectUnauthorized: env.bool(
+                  'DATABASE_SSL_REJECT_UNAUTHORIZED',
+                  true
+                ),
+              }
           : false,
         schema: env('DATABASE_SCHEMA', 'public'),
       },
