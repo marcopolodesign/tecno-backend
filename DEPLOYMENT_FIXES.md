@@ -18,10 +18,16 @@ Error: Failed to load native binding at @swc/core/binding.js
 Changed in `package.json`:
 ```json
 "engines": {
-  "node": ">=18.0.0 <=20.x.x",  // Previously: "20.17.0"
-  "npm": ">=6.0.0"
+  "node": ">=20.0.0 <=20.x.x",  // Previously: "20.17.0", then ">=18.0.0 <=20.x.x"
+  "npm": ">=10.0.0"              // Previously: ">=6.0.0"
 }
 ```
+
+**Reason for Node 20:**
+- Production was running Node.js v19.9.0 (EOL, unmaintained)
+- npm 11.6.2 requires Node.js 20+
+- Strapi 5.25.0 officially supports Node.js 18.x or 20.x (not 19.x)
+- Node 20 LTS has support until April 2026
 
 ### 2. Production Deployment Configuration Missing Proxy Settings
 
@@ -51,7 +57,8 @@ module.exports = ({ env }) => ({
 | Configuration | tecno-backend (Before) | sparring-back (Working) | tecno-backend (Fixed) |
 |--------------|----------------------|------------------------|---------------------|
 | **Strapi Version** | 5.25.0 | 4.24.2 | 5.25.0 (no change) |
-| **Node Version** | 20.17.0 (exact) | >=18.0.0 <=20.x.x | >=18.0.0 <=20.x.x |
+| **Node Version** | >=20.0.0 <=20.x.x (Node 20 LTS) | >=18.0.0 <=20.x.x | >=20.0.0 <=20.x.x |
+| **npm Version** | >=10.0.0 | >=6.0.0 | >=10.0.0 |
 | **Production Proxy** | Yes | Yes | Yes (enhanced) |
 | **Production Host/Port** | ❌ Missing | ❌ Missing | ✅ Added |
 | **Database SSL Logic** | Ternary operators | && operators | Ternary (better) |
@@ -70,11 +77,14 @@ Both projects have identical middleware configurations including CSP settings fo
 
 ## Steps Taken to Fix
 
-1. ✅ Updated Node.js version constraint from exact version to range
-2. ✅ Deleted `node_modules` and `package-lock.json`
-3. ✅ Ran `npm install` to rebuild native bindings
-4. ✅ Added missing `host` and `port` in production server config
-5. ✅ Tested build successfully with `npm run build`
+1. ✅ Updated Node.js version constraint from exact version to Node 20 LTS range
+2. ✅ Updated npm version constraint to >=10.0.0 (compatible with npm 11.x)
+3. ✅ Deleted `node_modules` and `package-lock.json`
+4. ✅ Ran `npm install` to rebuild native bindings
+5. ✅ Added missing `host` and `port` in production server config
+6. ✅ Updated `.nvmrc` to use Node 20
+7. ✅ Tested build successfully with `npm run build`
+8. ✅ Created comprehensive Node 20 upgrade guide
 
 ## Required Environment Variables for Production
 
@@ -142,15 +152,20 @@ NODE_ENV=production npm start
 
 ## Deployment Checklist
 
-- [x] Node.js version matches server environment (18.x - 20.x)
+- [x] Node.js 20 LTS configured in production environment
+- [x] npm 10+ compatible with production
 - [x] All environment variables configured
 - [x] Database accessible from server
 - [x] `proxy: true` enabled in production config
 - [x] SSL certificates configured (if needed)
-- [ ] Run `npm run build` before deployment
+- [ ] Clear build cache in production platform
+- [ ] Deploy with Node.js 20 environment
+- [ ] Run `npm run build` during deployment
 - [ ] Test with `NODE_ENV=production npm start` locally
 - [ ] Verify database migrations run successfully
 - [ ] Check application logs after deployment
+- [ ] Verify admin panel accessible
+- [ ] Test API endpoints
 
 ## Additional Notes
 

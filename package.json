@@ -30,8 +30,8 @@
   },
   "devDependencies": {},
   "engines": {
-    "node": ">=18.0.0 <=20.x.x",
-    "npm": ">=6.0.0"
+    "node": ">=20.0.0 <=20.x.x",
+    "npm": ">=10.0.0"
   },
   "strapi": {
     "uuid": "70d4f476-2ae1-4f40-b8e5-99896b7d9eb7",
