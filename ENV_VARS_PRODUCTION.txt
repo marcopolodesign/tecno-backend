@@ -1,7 +1,8 @@
 # ==============================================
 # PRODUCTION ENVIRONMENT VARIABLES
 # ==============================================
-# Copy these to your production platform's environment variables section
+# Platform: DigitalOcean App Platform
+# Copy these to Settings → Environment Variables in DigitalOcean
 # Replace all placeholder values with your actual production values
 
 # ----------------------------------------------
@@ -15,9 +16,9 @@ NODE_ENV=production
 # Your production domain (with https://)
 APP_URL=https://your-domain.com
 
-# Host and Port (usually these defaults work)
+# Host and Port
 HOST=0.0.0.0
-PORT=1337
+PORT=8080  # DigitalOcean App Platform default port
 
 # App Keys - CRITICAL: Generate unique keys for production
 # Generate with: node -e "console.log(require('crypto').randomBytes(32).toString('base64'))"
@@ -27,12 +28,21 @@ APP_KEYS=["GENERATE_KEY_1","GENERATE_KEY_2","GENERATE_KEY_3","GENERATE_KEY_4"]
 # ----------------------------------------------
 # DATABASE CONFIGURATION
 # ----------------------------------------------
+# Option 1: Using DigitalOcean Managed Database (recommended)
 DATABASE_CLIENT=postgres
-DATABASE_HOST=your-database-host.com
-DATABASE_PORT=5432
-DATABASE_NAME=your_database_name
-DATABASE_USERNAME=your_database_user
-DATABASE_PASSWORD=your_database_password
+DATABASE_HOST=${db.HOSTNAME}
+DATABASE_PORT=${db.PORT}
+DATABASE_NAME=${db.DATABASE}
+DATABASE_USERNAME=${db.USERNAME}
+DATABASE_PASSWORD=${db.PASSWORD}
+
+# Option 2: Using External Database
+# DATABASE_CLIENT=postgres
+# DATABASE_HOST=your-database-host.com
+# DATABASE_PORT=5432
+# DATABASE_NAME=your_database_name
+# DATABASE_USERNAME=your_database_user
+# DATABASE_PASSWORD=your_database_password
 
 # Database SSL (set to true for production)
 DATABASE_SSL=true
@@ -108,4 +118,5 @@ API_TOKEN_SALT=your_generated_salt
 TRANSFER_TOKEN_SALT=your_generated_salt
 JWT_SECRET=your_generated_secret
 STRAPI_TELEMETRY_DISABLED=true
+
 
